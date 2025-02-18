@@ -57,7 +57,7 @@ const Header = () => {
         </div>
       </div>
       <div className="absolute bottom-0 right-0 bg-red-600 px-8 py-2 text-white text-2xl font-bold">
-        FICHA TÉCNICA
+        PROCESO
       </div>
     </div>
   );
@@ -71,7 +71,7 @@ const CompanyInfo = () => {
       <p className="text-sm">RIF: G-20016166-3</p>
     </div>
   );
-};0
+};
 
 const ProcessDescription = () => {
   return (
@@ -135,6 +135,24 @@ const ServicesOffered = () => {
             description: "Aplicación de recubrimientos protectores y decorativos sobre superficies metálicas.",
             advantages: "Amplia gama de pinturas y acabados para proteger sus piezas de la corrosión y mejorar su apariencia."
           },
+          
+        ].map((service, index) => (
+          <li key={index}>
+            <strong>{service.title}:</strong> {service.description} <br />
+            <em>{service.advantages}</em>
+          </li>
+        ))}
+      </ul>
+    </Card>
+  );
+};
+
+const Gallery = () => {
+  return (
+    <Card>
+      <ul className="list-disc pl-5 space-y-2">
+        {[
+          
           {
             title: "Sandblasting",
             description: "Proceso de limpieza y acabado de superficies mediante la proyección de abrasivos a alta presión.",
@@ -157,13 +175,8 @@ const ServicesOffered = () => {
           </li>
         ))}
       </ul>
-    </Card>
-  );
-};
-
-const Gallery = () => {
-  return (
-    <Card title="GALERÍA">
+      <br />
+      <h2 className="font-bold">GALERÍA</h2>
       <div className="pt-4 grid grid-cols-2 gap-2">
         {[
           "/assets/img/mecanizado_01.jpg",

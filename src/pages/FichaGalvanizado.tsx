@@ -23,7 +23,6 @@ const FichaGalvanizado = () => {
         <ProcessDescription />
         <Infrastructure />
         <MarketTarget />
-        <Investment />
         <References />
       </div>
 
@@ -58,7 +57,7 @@ const Header = () => {
         </div>
       </div>
       <div className="absolute bottom-0 right-0 bg-red-600 px-8 py-2 text-white text-2xl font-bold">
-        FICHA TÉCNICA
+        PROCESO
       </div>
     </div>
   );

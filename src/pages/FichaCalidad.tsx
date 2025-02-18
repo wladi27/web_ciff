@@ -19,10 +19,36 @@ const FichaCalidad = () => {
       </div>
 
       {/* Contenido Principal */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
-        <ProcessDescription />
-        <Importance />
-        <QualityTests />
+      <div className="p-6">
+        <h2 className="text-2xl font-bold text-white mb-4">Nuestro Laboratorio de Calidad</h2>
+        <Card 
+          description="En nuestro Laboratorio de Calidad nos especializamos en la realización de ensayos fundamentales para la Industria Metalmecánica, asegurando que cada componente fabricado en el Complejo Industrial 'Fábrica de Fábricas Hugo Chávez Frías' cumpla con los requisitos necesarios para un óptimo desempeño."
+        />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Métodos de Ensayo */}
+          <div>
+            <h3 className="text-xl font-bold text-white mb-4">Métodos de Ensayo</h3>
+            {methods.map((method, index) => (
+              <MethodCard key={index} title={method.title} description={method.description} />
+            ))}
+          </div>
+
+          {/* Galería */}
+          <div>
+            <h3 className="text-xl font-bold text-white mb-4">Galería</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {galleryImages.map((image, index) => (
+                <img key={index} src={image.src} alt={image.alt} className="rounded-lg shadow-md transition-transform duration-300 hover:scale-105" />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <h2 className="text-2xl font-bold text-white my-6">Importancia del Control de Calidad</h2>
+        <Card 
+          description="El desarrollo de estos ensayos en nuestro laboratorio es esencial para asegurar que cada etapa del proceso de fabricación cumpla con los estándares de calidad establecidos, minimizando riesgos y mejorando la competitividad en el mercado. Un enfoque riguroso en el control de calidad no solo protege a la empresa contra posibles fallos, sino que también fortalece su reputación y confianza entre los clientes."
+        />
       </div>
 
       {/* Footer */}
@@ -56,7 +82,7 @@ const Header = () => {
         </div>
       </div>
       <div className="absolute bottom-0 right-0 bg-red-600 px-8 py-2 text-white text-2xl font-bold">
-        FICHA TÉCNICA
+        PROCESO
       </div>
     </div>
   );
@@ -72,67 +98,22 @@ const CompanyInfo = () => {
   );
 };
 
-const ProcessDescription = () => {
+const Card = ({ description }) => {
   return (
-    <Card title="LABORATORIO DE CALIDAD">
-      <p style={{ textAlign: "justify" }}>
-        En nuestro Laboratorio de Calidad nos especializamos en la realización de ensayos fundamentales para la Industria Metalmecánica, asegurando que cada componente fabricado en el Complejo Industrial "Fábrica de Fábricas Hugo Chávez Frías" cumpla con los requisitos necesarios para un óptimo desempeño.
-      </p>
-      <br />
-      <img className="rounded-lg" src="/assets/img/photo_5057957430452923497_yqfsq.jpg" alt="" />
-    </Card>
+    <div className="bg-white p-4 shadow-md rounded-lg mb-6">
+      <p className="text-gray-700 text-justify">{description}</p>
+    </div>
   );
 };
 
-const QualityTests = () => {
-  
+const MethodCard = ({ title, description }) => {
   return (
-    <Card title="GALERIA">
-        <br />
-      <img className="rounded-lg" src="/assets/img/photo_5057957430452923498_yafae.jpg" alt="" />
-     
-    </Card>
+    <div className="bg-white p-4 shadow-md rounded-lg mb-6">
+      <h4 className="text-lg font-bold text-[#00205B] mb-2">{title}</h4>
+      <p className="text-sm text-gray-600">{description}</p>
+    </div>
   );
 };
-
-const Importance = () => {const tests = [
-    {
-      title: "Espectrometría por chispa",
-      description: "Método de análisis químico que determina la composición de metales y aleaciones."
-    },
-    {
-      title: "Ensayo de dureza de materiales",
-      description: "Técnica para determinar la resistencia de un material a la deformación plástica."
-    },
-    {
-      title: "Granulometría de la arena",
-      description: "Análisis de la distribución de partículas de arena en el proceso de fundición."
-    },
-    {
-      title: "Metalografía",
-      description: "Análisis de la microestructura de los materiales metálicos a nivel microscópico."
-    }
-  ];
-
-  return (
-    <Card title="IMPORTANCIA DEL CONTROL DE CALIDAD">
-      <p style={{ textAlign: "justify" }}>
-        El desarrollo de estos ensayos en nuestro laboratorio es esencial para asegurar que cada etapa del proceso de fabricación cumpla con los estándares de calidad establecidos, minimizando riesgos y mejorando la competitividad en el mercado.
-      </p>
-      <br />
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {tests.map((test, index) => (
-          <div key={index} className="bg-white p-4 shadow-md rounded-lg transition-transform transform hover:scale-105">
-            <h4 className="font-bold mb-2">{test.title}</h4>
-            <p style={{ textAlign: "justify" }}>{test.description}</p>
-          </div>
-        ))}
-      </div>
-    </Card>
-  );
-};
-
-
 
 const Footer = () => {
   return (
@@ -146,14 +127,32 @@ const Footer = () => {
   );
 };
 
-// Componente Card
-const Card = ({ title, children }) => {
-  return (
-    <div className="bg-white p-6 shadow-md rounded-lg mb-4 transition-transform transform hover:scale-105">
-      <h3 className="text-xl font-bold mb-2 text-[#00205B]">{title}</h3>
-      <div>{children}</div>
-    </div>
-  );
-};
+// Datos de métodos de ensayo
+const methods = [
+  {
+    title: "Espectrometría por chispa",
+    description: "Método de análisis químico que determina la composición de metales y aleaciones, asegurando que las materias primas cumplan con las especificaciones requeridas."
+  },
+  {
+    title: "Ensayo de dureza de materiales",
+    description: "Técnica para determinar la resistencia de un material a la deformación plástica, utilizando un durómetro para evaluar la calidad de los materiales."
+  },
+  {
+    title: "Granulometría de la arena",
+    description: "Análisis de la distribución de partículas de arena en el proceso de fundición, optimizando la calidad de los moldes y garantizando acabados superiores."
+  },
+  {
+    title: "Metalografía",
+    description: "Análisis de la microestructura de los materiales metálicos a nivel microscópico, proporcionando información sobre su composición y propiedades mecánicas."
+  }
+];
+
+// Datos de la galería
+const galleryImages = [
+  { src: "/assets/img/photo_4918133026374921982_y.jpg", alt: "Galería 1" },
+  { src: "/assets/img/photo_5057957430452923497_yqfsq.jpg", alt: "Galería 2" },
+  { src: "/assets/img/photo_5057957430452923498_yafae.jpg", alt: "Galería 3" },
+  { src: "/assets/img/photo_5057957430452923495_y.jpg", alt: "Galería 4" }
+];
 
 export default FichaCalidad;

@@ -19,7 +19,7 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch('http://localhost:8000/api/contact.php', { // Cambia la URL aquí
+    fetch('https://3s73r3m9-8000.use2.devtunnels.ms/api/contact.php', { // Cambia la URL aquí
       method: 'POST',
       body: JSON.stringify(formData),
       headers: {

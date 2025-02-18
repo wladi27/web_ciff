@@ -27,21 +27,21 @@ const Infraestructura = () => {
               title: 'GALPONES',
               description: 'Se cuenta con 27 galpones productivos.',
               imgSrc: 'assets/img/photo_5096245513413570023jsf.jpg',
-              modalImages: ['assets/img/galpones.jpg', 'assets/img/galpones_2.jpg'], // Agregar más imágenes si es necesario
+              modalImages: ['assets/img/galpones.jpg', 'assets/img/galpones_2.jpg'],
             },
             {
               id: 2,
               title: 'MÁQUINAS',
               description: '+1000 equipos de alta tecnología.',
               imgSrc: 'assets/img/maquinas.png',
-              modalImages: ['assets/img/p2.jpg', 'assets/img/p2_2.jpg'], // Agregar más imágenes si es necesario
+              modalImages: ['assets/img/p2.jpg', 'assets/img/p2_2.jpg'],
             },
             {
               id: 3,
               title: 'PRODUCTOS TERMINADOS',
               description: 'Partes y piezas fabricadas con mano de obra calificada.',
               imgSrc: 'assets/img/n1.jpg',
-              modalImages: ['assets/img/pt/photo_4931918088983653720_y.jpg', 'assets/img/pt/photo_4933896445409471940_y.jpg'], // Agregar más imágenes si es necesario
+              modalImages: ['assets/img/pt/photo_4931918088983653720_y.jpg', 'assets/img/pt/photo_4933896445409471940_y.jpg'],
             },
           ].map((item) => (
             <div key={item.id} className="bg-white rounded-lg shadow-md flex flex-col">
@@ -70,7 +70,7 @@ const Infraestructura = () => {
       {/* Modals */}
       {modalOpen && (
         <div className="modal flex justify-center items-center fixed z-50 left-0 top-0 w-full h-full bg-black bg-opacity-70">
-          <div className="modal-content bg-white p-4 rounded-lg text-center w-11/12 max-w-2xl">
+          <div className="modal-content bg-white p-4 rounded-lg text-center w-11/12 max-w-2xl max-h-[90vh] overflow-y-auto">
             <span className="close cursor-pointer text-2xl absolute top-2 right-2" onClick={closeModal}>
               &times;
             </span>
